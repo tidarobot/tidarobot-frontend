@@ -1,0 +1,70 @@
+<mat-sidenav-container class="layout">
+
+  <!-- SIDEBAR -->
+  <mat-sidenav mode="side" opened class="sidenav">
+
+    <h2 class="logo">TidaroBot</h2>
+
+    <a mat-button routerLink="/dashboard">Dashboard</a>
+    <a mat-button routerLink="/reservations">Rezerwacje</a>
+    <a mat-button routerLink="/profile">Profil</a>
+    <a mat-button routerLink="/admin">Admin</a>
+
+  </mat-sidenav>
+
+  <!-- CONTENT -->
+  <mat-sidenav-content>
+
+    <!-- NAVBAR -->
+    <mat-toolbar color="primary">
+      <span>Dashboard</span>
+      <span class="spacer"></span>
+
+      <button mat-icon-button>
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+
+      <!-- KARTY -->
+      <div class="cards">
+
+        <mat-card class="card">
+          <h3>Rezerwacje</h3>
+          <p>Zarządzaj miejscami parkingowymi</p>
+          <button mat-raised-button color="primary" routerLink="/reservations">
+            Przejdź
+          </button>
+        </mat-card>
+
+        <mat-card class="card">
+          <h3>Profil</h3>
+          <p>Zarządzaj swoim kontem</p>
+          <button mat-raised-button color="accent" routerLink="/profile">
+            Edytuj
+          </button>
+        </mat-card>
+
+        <mat-card class="card">
+          <h3>Statystyki</h3>
+          <p>Zobacz dane rezerwacji</p>
+          <button mat-raised-button color="warn">
+            Wkrótce
+          </button>
+        </mat-card>
+
+      </div>
+
+      <!-- STATYSTYKI PLACEHOLDER -->
+      <mat-card class="big-card">
+        <h3>Statystyki</h3>
+        <p>W przyszłości: wykresy, ranking użytkowników, dni</p>
+      </mat-card>
+
+    </div>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

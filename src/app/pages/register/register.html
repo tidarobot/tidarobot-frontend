@@ -1,0 +1,45 @@
+<div class="auth-container">
+  <mat-card class="auth-card">
+
+    <h2>Registration</h2>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Login Tidaro</mat-label>
+        <input matInput formControlName="loginTidaro">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password Tidaro</mat-label>
+        <input matInput type="password" formControlName="passwordTidaro">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">
+        Register
+      </button>
+
+    </form>
+
+    <p>
+      Do you have an account?
+      <a routerLink="/login">Log in</a>
+    </p>
+
+  </mat-card>
+</div>
