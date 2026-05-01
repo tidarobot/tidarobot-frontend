@@ -1,0 +1,119 @@
+.layout {
+  height: 100vh;
+}
+
+.sidenav {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 12px;
+  gap: 4px;
+}
+
+.logo {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 0 12px;
+  margin-bottom: 16px;
+}
+
+a[mat-button] {
+  color: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  width: 100%;
+  justify-content: flex-start;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+  }
+}
+
+.spacer {
+  flex: 1;
+}
+
+.content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: calc(100vh - 64px);
+  box-sizing: border-box;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 16px !important;
+  color: white !important;
+  backdrop-filter: blur(15px);
+  transition: transform 0.2s;
+
+  mat-card-content {
+    padding: 20px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  h3 {
+    color: white;
+    font-size: 16px;
+    margin: 0;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    flex: 1;
+  }
+
+  button {
+    width: fit-content;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.big-card {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 16px !important;
+  color: white !important;
+  flex: 1;
+
+  mat-card-content {
+    padding: 20px !important;
+  }
+
+  h3 {
+    color: white;
+    font-size: 16px;
+    margin: 0 0 8px;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+  }
+}
+
+.logo {
+  padding: 16px 12px 8px;
+
+  img {
+    width: 140px;
+    height: auto;
+    display: block;
+  }
+}
