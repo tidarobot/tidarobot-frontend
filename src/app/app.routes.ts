@@ -3,8 +3,8 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () => import('./pages/layout/main-layout/main-layout')
-        .then(m => m.MainLayout)
+    loadComponent: () => import('./pages/layout/main-page/main-page')
+        .then(m => m.MainPage)
   },
   {
     path: 'login',
