@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 500px;
 }
 
 .card {
@@ -43,15 +42,28 @@
 .form {
   display: flex;
   flex-direction: column;
+  gap: 16px;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
   gap: 4px;
 
   mat-form-field {
     width: 100%;
   }
+}
 
-  button {
-    width: fit-content;
-  }
+.actions {
+  display: flex;
+  justify-content: center;
 }
 
 .error {

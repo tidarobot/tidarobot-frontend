@@ -33,16 +33,20 @@ export class Profile {
     this.username = auth.getUsername();
     this.form = this.fb.group({
       email: [''],
-      password: ['']
+      password: [''],
+      loginTidaro: [''],
+      passwordTidaro: ['']
     });
   }
 
   save() {
-    const { email, password } = this.form.value;
-    const data: { email?: string; password?: string } = {};
+    const { email, password, loginTidaro, passwordTidaro } = this.form.value;
+    const data: { email?: string; password?: string; loginTidaro?: string; passwordTidaro?: string } = {};
     if (email) data.email = email;
     if (password) data.password = password;
-    if (!data.email && !data.password) return;
+    if (loginTidaro) data.loginTidaro = loginTidaro;
+    if (passwordTidaro) data.passwordTidaro = passwordTidaro;
+    if (!Object.keys(data).length) return;
 
     this.error.set(null);
     this.success.set(null);

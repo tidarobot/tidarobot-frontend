@@ -7,7 +7,7 @@ import { User } from '../models/user';
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  update(data: { email?: string; password?: string }) {
+  update(data: { email?: string; password?: string; loginTidaro?: string; passwordTidaro?: string }) {
     return this.http.patch<User>(API_ENDPOINTS.USERS.UPDATE, data);
   }
 

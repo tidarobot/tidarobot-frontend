@@ -9,15 +9,31 @@
 
       <form [formGroup]="form" (ngSubmit)="save()" class="form">
 
-        <mat-form-field appearance="outline">
-          <mat-label>New Email (optional)</mat-label>
-          <input matInput type="email" formControlName="email">
-        </mat-form-field>
+        <div class="fields">
+          <div class="column">
+            <mat-form-field appearance="outline">
+              <mat-label>New Email (optional)</mat-label>
+              <input matInput type="email" formControlName="email">
+            </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>New Password (optional)</mat-label>
-          <input matInput type="password" formControlName="password">
-        </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>New Password (optional)</mat-label>
+              <input matInput type="password" formControlName="password">
+            </mat-form-field>
+          </div>
+
+          <div class="column">
+            <mat-form-field appearance="outline">
+              <mat-label>Tidaro Login (optional)</mat-label>
+              <input matInput formControlName="loginTidaro">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Tidaro Password (optional)</mat-label>
+              <input matInput type="password" formControlName="passwordTidaro">
+            </mat-form-field>
+          </div>
+        </div>
 
         @if (error()) {
           <p class="error">{{ error() }}</p>
@@ -26,7 +42,9 @@
           <p class="success">{{ success() }}</p>
         }
 
-        <button mat-raised-button color="primary" type="submit">Save Changes</button>
+        <div class="actions">
+          <button mat-raised-button color="primary" type="submit">Save Changes</button>
+        </div>
 
       </form>
     </mat-card-content>
