@@ -1,0 +1,43 @@
+<div class="page">
+
+  <mat-card class="card">
+    <mat-card-content>
+      <h3>Profile</h3>
+      @if (username) {
+        <p class="username">Logged in as <strong>{{ username }}</strong></p>
+      }
+
+      <form [formGroup]="form" (ngSubmit)="save()" class="form">
+
+        <mat-form-field appearance="outline">
+          <mat-label>New Email (optional)</mat-label>
+          <input matInput type="email" formControlName="email">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>New Password (optional)</mat-label>
+          <input matInput type="password" formControlName="password">
+        </mat-form-field>
+
+        @if (error()) {
+          <p class="error">{{ error() }}</p>
+        }
+        @if (success()) {
+          <p class="success">{{ success() }}</p>
+        }
+
+        <button mat-raised-button color="primary" type="submit">Save Changes</button>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card danger-card">
+    <mat-card-content>
+      <h3>Danger Zone</h3>
+      <p>Permanently delete your account and all associated data.</p>
+      <button mat-raised-button color="warn" (click)="deleteAccount()">Delete Account</button>
+    </mat-card-content>
+  </mat-card>
+
+</div>

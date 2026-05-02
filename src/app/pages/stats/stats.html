@@ -1,0 +1,92 @@
+<div class="page">
+
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  <mat-card class="card">
+    <mat-card-content>
+
+      <mat-tab-group>
+
+        <mat-tab label="Days">
+          <div class="tab-content">
+            <table mat-table [dataSource]="days()" class="table">
+              <ng-container matColumnDef="rank">
+                <th mat-header-cell *matHeaderCellDef>#</th>
+                <td mat-cell *matCellDef="let d; let i = index">{{ rankOf(daysPage(), i) }}</td>
+              </ng-container>
+              <ng-container matColumnDef="targetDate">
+                <th mat-header-cell *matHeaderCellDef>Date</th>
+                <td mat-cell *matCellDef="let d">{{ d.targetDate }}</td>
+              </ng-container>
+              <ng-container matColumnDef="reservationCount">
+                <th mat-header-cell *matHeaderCellDef>Reservations</th>
+                <td mat-cell *matCellDef="let d">{{ d.reservationCount }}</td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="dayColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: dayColumns;"></tr>
+            </table>
+            <mat-paginator
+              [length]="daysTotal()"
+              [pageSize]="20"
+              [pageIndex]="daysPage()"
+              [pageSizeOptions]="[20]"
+              (page)="onDayPage($event)"
+              aria-label="Days page"
+            />
+          </div>
+        </mat-tab>
+
+        <mat-tab label="Users">
+          <div class="tab-content">
+            <table mat-table [dataSource]="users()" class="table">
+              <ng-container matColumnDef="rank">
+                <th mat-header-cell *matHeaderCellDef>#</th>
+                <td mat-cell *matCellDef="let u; let i = index">{{ rankOf(usersPage(), i) }}</td>
+              </ng-container>
+              <ng-container matColumnDef="username">
+                <th mat-header-cell *matHeaderCellDef>Username</th>
+                <td mat-cell *matCellDef="let u">{{ u.username }}</td>
+              </ng-container>
+              <ng-container matColumnDef="reservationCount">
+                <th mat-header-cell *matHeaderCellDef>Reservations</th>
+                <td mat-cell *matCellDef="let u">{{ u.reservationCount }}</td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="userColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: userColumns;"></tr>
+            </table>
+            <mat-paginator
+              [length]="usersTotal()"
+              [pageSize]="20"
+              [pageIndex]="usersPage()"
+              [pageSizeOptions]="[20]"
+              (page)="onUserPage($event)"
+              aria-label="Users page"
+            />
+          </div>
+        </mat-tab>
+
+        <mat-tab label="Floors">
+          <div class="tab-content">
+            <table mat-table [dataSource]="floors()" class="table">
+              <ng-container matColumnDef="floor">
+                <th mat-header-cell *matHeaderCellDef>Floor</th>
+                <td mat-cell *matCellDef="let f">{{ floorLabel(f.floor) }}</td>
+              </ng-container>
+              <ng-container matColumnDef="reservationCount">
+                <th mat-header-cell *matHeaderCellDef>Reservations</th>
+                <td mat-cell *matCellDef="let f">{{ f.reservationCount }}</td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="floorColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: floorColumns;"></tr>
+            </table>
+          </div>
+        </mat-tab>
+
+      </mat-tab-group>
+
+    </mat-card-content>
+  </mat-card>
+
+</div>

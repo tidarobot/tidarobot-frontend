@@ -1,0 +1,78 @@
+<div class="page">
+
+  <mat-card class="card">
+    <mat-card-content>
+      <h3>New Reservation</h3>
+      <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+
+        <mat-form-field appearance="outline">
+          <mat-label>City</mat-label>
+          <mat-select formControlName="city">
+            <mat-option value="CRACOW">Cracow</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Floor</mat-label>
+          <mat-select formControlName="floor">
+            @for (f of floors; track f.value) {
+              <mat-option [value]="f.value">{{ f.label }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Target Date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="targetDate" [min]="minDate" readonly>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        @if (createError()) {
+          <p class="error">{{ createError() }}</p>
+        }
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+          Book Spot
+        </button>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card">
+    <mat-card-content>
+      <h3>My Reservations</h3>
+
+      @if (error()) {
+        <p class="error">{{ error() }}</p>
+      }
+
+      @if (reservations().length === 0) {
+        <p class="empty">No reservations yet.</p>
+      }
+
+      <div class="reservation-list">
+        @for (r of reservations(); track r.id) {
+          <div class="reservation-item">
+            <div class="reservation-main">
+              <span class="city-floor">{{ r.city }} · {{ r.floor.replace('_', ' ') }}</span>
+              <span class="target-date">{{ r.targetDate }}</span>
+              <span [class]="'badge ' + statusClass(r.status)">{{ r.status }}</span>
+            </div>
+            <div class="reservation-meta">
+              <span>Bot scheduled: {{ r.scheduledFor | date:'MMM d, y, h:mm a' }}</span>
+            </div>
+            @if (r.status === 'SCHEDULED') {
+              <button mat-stroked-button color="warn" class="cancel-btn" (click)="cancel(r.id)">
+                Cancel
+              </button>
+            }
+          </div>
+        }
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+
+</div>

@@ -1,0 +1,117 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 16px !important;
+  color: white !important;
+  backdrop-filter: blur(15px);
+
+  mat-card-content {
+    padding: 20px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+  }
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-start;
+
+  mat-form-field {
+    min-width: 180px;
+    flex: 1;
+  }
+
+  button {
+    height: 56px;
+    width: fit-content;
+  }
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 13px;
+  margin: 0;
+  width: 100%;
+}
+
+.empty {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  margin: 0;
+}
+
+.reservation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reservation-item {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.reservation-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.city-floor {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.target-date {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.reservation-meta {
+  width: 100%;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.cancel-btn {
+  margin-left: auto;
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-scheduled    { background: rgba(100, 181, 246, 0.25); color: #64b5f6; border: 1px solid rgba(100,181,246,0.4); }
+.status-in-progress  { background: rgba(255, 213, 79,  0.25); color: #ffd54f; border: 1px solid rgba(255,213,79, 0.4); }
+.status-completed    { background: rgba(129, 199, 132, 0.25); color: #81c784; border: 1px solid rgba(129,199,132,0.4); }
+.status-failed       { background: rgba(239, 83,  80,  0.25); color: #ef5350; border: 1px solid rgba(239,83, 80, 0.4); }
+.status-cancelled    { background: rgba(189, 189, 189, 0.2);  color: #bdbdbd; border: 1px solid rgba(189,189,189,0.3); }

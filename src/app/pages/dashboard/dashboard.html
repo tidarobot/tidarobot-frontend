@@ -1,0 +1,41 @@
+<div class="cards">
+
+  <mat-card class="card">
+    <mat-card-content>
+      <mat-icon>local_parking</mat-icon>
+      <h3>Reservations</h3>
+      <p>Book and manage your parking spots</p>
+      <button mat-raised-button color="primary" routerLink="/reservations">Go</button>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card">
+    <mat-card-content>
+      <mat-icon>person</mat-icon>
+      <h3>Profile</h3>
+      <p>Update your email and password</p>
+      <button mat-raised-button color="accent" routerLink="/profile">Edit</button>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card">
+    <mat-card-content>
+      <mat-icon>bar_chart</mat-icon>
+      <h3>Statistics</h3>
+      <p>View reservation rankings</p>
+      <button mat-raised-button routerLink="/stats">View</button>
+    </mat-card-content>
+  </mat-card>
+
+  @if (auth.isAdmin()) {
+    <mat-card class="card">
+      <mat-card-content>
+        <mat-icon>admin_panel_settings</mat-icon>
+        <h3>Admin</h3>
+        <p>Approve users and manage accounts</p>
+        <button mat-raised-button color="warn" routerLink="/admin">Manage</button>
+      </mat-card-content>
+    </mat-card>
+  }
+
+</div>
