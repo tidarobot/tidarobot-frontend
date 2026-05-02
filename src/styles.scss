@@ -118,6 +118,112 @@ mat-form-field {
   border-color: white !important;
 }
 
+// Dark-theme overrides for Material components inside the main layout
+// Scoped to .layout so they don't affect the auth pages.
+.layout {
+
+  .mat-mdc-table {
+    background: transparent !important;
+  }
+
+  .mat-mdc-header-row {
+    background: transparent !important;
+  }
+
+  .mat-mdc-row {
+    background: transparent !important;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.05) !important;
+    }
+  }
+
+  .mat-mdc-header-cell {
+    color: rgba(255, 255, 255, 0.6) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.15) !important;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .mat-mdc-cell {
+    color: white !important;
+    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .mat-mdc-paginator {
+    background: transparent !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  .mat-mdc-paginator-icon {
+    fill: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  .mat-mdc-paginator-range-label,
+  .mat-mdc-paginator-page-size-label {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  .mat-mdc-select-arrow {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  // Tab overrides
+  .mat-mdc-tab .mdc-tab__text-label {
+    color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+    color: white !important;
+  }
+
+  .mat-mdc-tab-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .mdc-tab-indicator__content--underline {
+    border-color: white !important;
+  }
+
+  .mat-mdc-tab-body-content {
+    color: white;
+  }
+
+  .mdc-text-field__input {
+    color: white !important;
+    caret-color: white !important;
+  }
+
+  .mdc-text-field__input::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+    opacity: 1 !important;
+  }
+
+  .mdc-floating-label,
+  .mat-mdc-floating-label {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  .mdc-notched-outline__leading,
+  .mdc-notched-outline__notch,
+  .mdc-notched-outline__trailing {
+    border-color: rgba(255, 255, 255, 0.4) !important;
+  }
+
+  .mdc-text-field--focused .mdc-notched-outline__leading,
+  .mdc-text-field--focused .mdc-notched-outline__notch,
+  .mdc-text-field--focused .mdc-notched-outline__trailing {
+    border-color: white !important;
+  }
+
+  .mat-mdc-select-value-text,
+  .mat-mdc-select-placeholder {
+    color: white !important;
+  }
+}
+
 .layout {
   background: linear-gradient(135deg, #667eea, #764ba2, #6b8dd6) !important;
   background-size: 300% 300% !important;

@@ -1,26 +1,29 @@
 import { Component } from '@angular/core';
-import {MatButton} from "@angular/material/button";
-import {MatCard, MatCardContent} from "@angular/material/card";
-import {MatIcon} from "@angular/material/icon";
-import {MatSidenav, MatSidenavContainer, MatSidenavContent} from "@angular/material/sidenav";
-import {MatToolbar} from "@angular/material/toolbar";
-import {RouterLink} from "@angular/router";
+import { MatButton, MatIconButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
+import { MatSidenav, MatSidenavContainer, MatSidenavContent } from '@angular/material/sidenav';
+import { MatToolbar } from '@angular/material/toolbar';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Auth } from '../../../core/services/auth';
 
 @Component({
   selector: 'app-main-page',
+  standalone: true,
   imports: [
     MatButton,
-    MatCard,
+    MatIconButton,
     MatIcon,
     MatSidenav,
     MatSidenavContainer,
     MatSidenavContent,
     MatToolbar,
     RouterLink,
-    MatCardContent
+    RouterLinkActive,
+    RouterOutlet
   ],
   templateUrl: './main-page.html',
-  styleUrl: './main-page.css',
-  standalone: true
+  styleUrl: './main-page.css'
 })
-export class MainPage {}
+export class MainPage {
+  constructor(protected auth: Auth) {}
+}

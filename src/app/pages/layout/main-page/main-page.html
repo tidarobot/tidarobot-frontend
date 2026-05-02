@@ -4,58 +4,27 @@
     <div class="logo">
       <img src="logo.png" alt="TidaroBot" />
     </div>
-    <a mat-button routerLink="/dashboard">Dashboard</a>
-    <a mat-button routerLink="/reservations">Reservations</a>
-    <a mat-button routerLink="/profile">Profile</a>
-    <a mat-button routerLink="/admin">Admin</a>
+    <a mat-button routerLink="/dashboard" routerLinkActive="active-link">Dashboard</a>
+    <a mat-button routerLink="/reservations" routerLinkActive="active-link">Reservations</a>
+    <a mat-button routerLink="/profile" routerLinkActive="active-link">Profile</a>
+    <a mat-button routerLink="/stats" routerLinkActive="active-link">Statistics</a>
+    @if (auth.isAdmin()) {
+      <a mat-button routerLink="/admin" routerLinkActive="active-link">Admin</a>
+    }
   </mat-sidenav>
 
   <mat-sidenav-content>
 
     <mat-toolbar>
-      <span>Dashboard</span>
+      <span>TidaroBot</span>
       <span class="spacer"></span>
-      <button mat-icon-button>
-        <mat-icon>account_circle</mat-icon>
+      <button mat-icon-button (click)="auth.logout()" title="Logout">
+        <mat-icon>logout</mat-icon>
       </button>
     </mat-toolbar>
 
     <div class="content">
-      <div class="cards">
-
-        <mat-card class="card">
-          <mat-card-content>
-            <h3>Reservations</h3>
-            <p>Manage your parking spots</p>
-            <button mat-raised-button color="primary" routerLink="/reservations">Go</button>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card class="card">
-          <mat-card-content>
-            <h3>Profile</h3>
-            <p>Manage your account</p>
-            <button mat-raised-button color="accent" routerLink="/profile">Edit</button>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card class="card">
-          <mat-card-content>
-            <h3>Statistics</h3>
-            <p>View reservation data</p>
-            <button mat-raised-button color="warn">Coming soon</button>
-          </mat-card-content>
-        </mat-card>
-
-      </div>
-
-      <mat-card class="big-card">
-        <mat-card-content>
-          <h3>Statistics</h3>
-          <p>Coming soon: charts, user rankings, daily summaries</p>
-        </mat-card-content>
-      </mat-card>
-
+      <router-outlet />
     </div>
 
   </mat-sidenav-content>
