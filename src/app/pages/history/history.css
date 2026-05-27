@@ -26,36 +26,15 @@
   }
 }
 
-.form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: flex-start;
-
-  mat-form-field {
-    min-width: 180px;
-    flex: 1;
-  }
-
-  button {
-    height: 56px;
-    width: fit-content;
-  }
-}
-
-.section-header {
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 8px;
-
-  h3 {
-    margin: 0;
-  }
 }
 
-.history-link {
+.back-link {
   color: rgba(255, 255, 255, 0.8) !important;
   border-color: rgba(255, 255, 255, 0.25) !important;
   font-size: 13px;
@@ -68,11 +47,14 @@
   }
 }
 
+.progress {
+  border-radius: 4px;
+}
+
 .error {
   color: #ff6b6b;
   font-size: 13px;
   margin: 0;
-  width: 100%;
 }
 
 .empty {
@@ -93,17 +75,25 @@
   border-radius: 12px;
   padding: 16px;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .reservation-main {
   display: flex;
   align-items: center;
   gap: 12px;
-  flex: 1;
   flex-wrap: wrap;
+}
+
+.username {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 213, 79, 0.9);
+  background: rgba(255, 213, 79, 0.1);
+  border: 1px solid rgba(255, 213, 79, 0.25);
+  border-radius: 20px;
+  padding: 2px 10px;
 }
 
 .city-floor {
@@ -117,13 +107,15 @@
 }
 
 .reservation-meta {
-  width: 100%;
   font-size: 12px;
   color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-.cancel-btn {
-  margin-left: auto;
+.separator {
+  color: rgba(255, 255, 255, 0.25);
 }
 
 .badge {
@@ -140,3 +132,14 @@
 .status-completed    { background: rgba(129, 199, 132, 0.25); color: #81c784; border: 1px solid rgba(129,199,132,0.4); }
 .status-failed       { background: rgba(239, 83,  80,  0.25); color: #ef5350; border: 1px solid rgba(239,83, 80, 0.4); }
 .status-cancelled    { background: rgba(189, 189, 189, 0.2);  color: #bdbdbd; border: 1px solid rgba(189,189,189,0.3); }
+
+.paginator {
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 8px;
+}
+
+::ng-deep .paginator .mat-mdc-icon-button {
+  color: rgba(255, 255, 255, 0.7) !important;
+}

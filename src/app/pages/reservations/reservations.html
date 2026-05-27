@@ -42,7 +42,13 @@
 
   <mat-card class="card">
     <mat-card-content>
-      <h3>My Reservations</h3>
+      <div class="section-header">
+        <h3>Latest Reservations</h3>
+        <a mat-stroked-button routerLink="/history" class="history-link">
+          <mat-icon>history</mat-icon>
+          View Full History
+        </a>
+      </div>
 
       @if (error()) {
         <p class="error">{{ error() }}</p>

@@ -15,6 +15,7 @@ export const API_ENDPOINTS = {
   },
   PARKING: {
     RESERVATIONS: `${BASE_URL}/parking/reservations`,
+    HISTORY: `${BASE_URL}/parking/reservations/history`,
     RESERVATION: (id: number) => `${BASE_URL}/parking/reservations/${id}`
   },
   STATS: {

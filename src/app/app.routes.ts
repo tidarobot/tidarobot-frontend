@@ -27,6 +27,10 @@ export const routes: Routes = [
         canActivate: [adminGuard]
       },
       {
+        path: 'history',
+        loadComponent: () => import('./pages/history/history').then(m => m.History)
+      },
+      {
         path: 'stats',
         loadComponent: () => import('./pages/stats/stats').then(m => m.Stats)
       }

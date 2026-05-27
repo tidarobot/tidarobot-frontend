@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { API_ENDPOINTS } from '../../shared/api-endpoints';
 import { CreateReservationRequest, ParkingReservation } from '../models/parking-reservation';
+import { Page } from '../models/page';
 
 @Injectable({ providedIn: 'root' })
 export class ParkingService {
@@ -11,8 +12,16 @@ export class ParkingService {
     return this.http.post<ParkingReservation>(API_ENDPOINTS.PARKING.RESERVATIONS, data);
   }
 
-  getOwn() {
+  getLatest() {
     return this.http.get<ParkingReservation[]>(API_ENDPOINTS.PARKING.RESERVATIONS);
+  }
+
+  getHistory(page = 0, size = 10) {
+    const params = new HttpParams()
+      .set('page', page)
+      .set('size', size)
+      .set('sort', 'createdAt,desc');
+    return this.http.get<Page<ParkingReservation>>(API_ENDPOINTS.PARKING.HISTORY, { params });
   }
 
   cancel(id: number) {

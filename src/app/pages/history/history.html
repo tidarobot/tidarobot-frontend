@@ -1,0 +1,59 @@
+<div class="page">
+
+  <mat-card class="card">
+    <mat-card-content>
+      <div class="header">
+        <h3>{{ isAdmin ? 'All Reservation History' : 'My Reservation History' }}</h3>
+        <a mat-stroked-button routerLink="/reservations" class="back-link">
+          <mat-icon>arrow_back</mat-icon>
+          Back
+        </a>
+      </div>
+
+      @if (loading()) {
+        <mat-progress-bar mode="indeterminate" class="progress"></mat-progress-bar>
+      }
+
+      @if (error()) {
+        <p class="error">{{ error() }}</p>
+      }
+
+      @if (!loading() && reservations().length === 0 && !error()) {
+        <p class="empty">No reservation history found.</p>
+      }
+
+      <div class="reservation-list">
+        @for (r of reservations(); track r.id) {
+          <div class="reservation-item">
+            <div class="reservation-main">
+              @if (isAdmin) {
+                <span class="username">{{ r.username }}</span>
+              }
+              <span class="city-floor">{{ r.city }} · {{ r.floor.replace('_', ' ') }}</span>
+              <span class="target-date">{{ r.targetDate }}</span>
+              <span [class]="'badge ' + statusClass(r.status)">{{ r.status }}</span>
+            </div>
+            <div class="reservation-meta">
+              <span>Scheduled: {{ r.scheduledFor | date:'MMM d, y, h:mm a' }}</span>
+              <span class="separator">·</span>
+              <span>Created: {{ r.createdAt | date:'MMM d, y, h:mm a' }}</span>
+            </div>
+          </div>
+        }
+      </div>
+
+      @if (totalElements() > 0) {
+        <mat-paginator
+          [length]="totalElements()"
+          [pageSize]="pageSize"
+          [pageSizeOptions]="[5, 10, 25]"
+          [pageIndex]="page"
+          (page)="onPageChange($event)"
+          class="paginator">
+        </mat-paginator>
+      }
+
+    </mat-card-content>
+  </mat-card>
+
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { MatButton } from '@angular/material/button';
 import { MatCard, MatCardContent } from '@angular/material/card';
 import { MatFormField, MatLabel, MatSuffix } from '@angular/material/form-field';
@@ -7,6 +8,7 @@ import { MatInput } from '@angular/material/input';
 import { MatSelect } from '@angular/material/select';
 import { MatOption, MatNativeDateModule } from '@angular/material/core';
 import { MatDatepicker, MatDatepickerInput, MatDatepickerToggle } from '@angular/material/datepicker';
+import { MatIcon } from '@angular/material/icon';
 import { DatePipe } from '@angular/common';
 import { ParkingService } from '../../core/services/parking.service';
 import { ParkingReservation } from '../../core/models/parking-reservation';
@@ -16,11 +18,13 @@ import { ParkingReservation } from '../../core/models/parking-reservation';
   standalone: true,
   imports: [
     ReactiveFormsModule,
+    RouterLink,
     MatCard, MatCardContent,
     MatButton,
     MatFormField, MatLabel, MatInput, MatSuffix,
     MatSelect, MatOption,
     MatDatepicker, MatDatepickerInput, MatDatepickerToggle, MatNativeDateModule,
+    MatIcon,
     DatePipe
   ],
   templateUrl: './reservations.html',
@@ -58,7 +62,7 @@ export class Reservations implements OnInit {
 
   load() {
     this.error.set(null);
-    this.parking.getOwn().subscribe({
+    this.parking.getLatest().subscribe({
       next: (res) => this.reservations.set(res),
       error: () => this.error.set('Failed to load reservations.')
     });

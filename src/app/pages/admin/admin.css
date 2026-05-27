@@ -54,6 +54,10 @@
 
 .actions-cell {
   white-space: nowrap;
+
+  button {
+    width: auto;
+  }
 }
 
 .badge {
